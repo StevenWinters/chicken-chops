@@ -1,11 +1,10 @@
 import { CiShoppingCart } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
+import { useCart } from "../context/CartContext";
 import { ModalData, useStore } from "../context/StoreContext";
 import Button from "./Button";
 import CustomImage from "./CustomImage";
 import Header from "./Header";
-import { useCart } from "../context/CartContext";
-import { useState } from "react";
 
 interface Props {
   isModalOpen: boolean;
