@@ -26,15 +26,15 @@ const CartItem = ({ ...item }: Props) => {
           &#8369;{handleCalculatePrice(item.quantity, item.price)}
         </span>
         <div className="flex align--center gap">
-          <span onClick={() => handleChangeCartQuantity(-1, item.id)}>
+          <span onClick={() => handleChangeCartQuantity(-1, item.name)}>
             <Button className="btn--accent btn--circle">-</Button>
           </span>
           <span className="text">{item.quantity}</span>
-          <span onClick={() => handleChangeCartQuantity(+1, item.id)}>
+          <span onClick={() => handleChangeCartQuantity(+1, item.name)}>
             <Button className="btn--accent btn--circle">+</Button>
           </span>
         </div>
-        <span className="icon" onClick={() => handleRemoveCartItem(item.id)}>
+        <span className="icon" onClick={() => handleRemoveCartItem(item.name)}>
           <BsFillTrash3Fill size={25} color="var(--color-dark)" />
         </span>
       </div>

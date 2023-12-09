@@ -14,8 +14,8 @@ interface StoreData {
 
 interface ItemSizes {
   name: string;
-  sizeValue: string;
   src: string;
+  price: number;
 }
 
 export interface ModalData {
@@ -41,6 +41,7 @@ interface StoreContext {
   handleOpenModal: () => void;
   handleCloseModal: () => void;
   handlePassModalData: ({ ...data }: ModalData) => void;
+  handleChangeModalData: (name: string, price: number) => void;
   handleChangeModalQuantity: (operation: number) => void;
   handleCalculatePrice: () => number;
   handleResetQuantity: () => void;
@@ -102,7 +103,22 @@ export function StoreContextProvider({ children }: Props) {
   const handleOpenModal = () => setToggleModal(true);
   const handleCloseModal = () => setToggleModal(false);
 
-  const handlePassModalData = ({ ...data }: ModalData) => setModalData(data);
+  const handlePassModalData = ({ ...data }: ModalData) => {
+    if (data.sizes)
+      return data.sizes.map(
+        (size) =>
+          size.price === data.price &&
+          setModalData({ ...data, name: size.name })
+      );
+
+    setModalData(data);
+  };
+  const handleChangeModalData = (name: string, price: number) =>
+    setModalData({
+      ...modalData,
+      name: name,
+      price: price,
+    });
 
   const handleChangeModalQuantity = (operation: number) => {
     if (operation === -1)
@@ -131,6 +147,7 @@ export function StoreContextProvider({ children }: Props) {
         handleOpenModal,
         handleCloseModal,
         handlePassModalData,
+        handleChangeModalData,
         handleChangeModalQuantity,
         handleCalculatePrice,
         handleResetQuantity,

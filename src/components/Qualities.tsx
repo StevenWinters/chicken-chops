@@ -21,7 +21,7 @@ const Qualities = () => {
                 src={data.src}
                 alt={data.name}
               />
-              <h3 className="quality__heading">{data.name}</h3>
+              <h3 className="badge badge--primary">{data.name}</h3>
             </div>
             <p className="quality__description">{data.description}</p>
           </div>

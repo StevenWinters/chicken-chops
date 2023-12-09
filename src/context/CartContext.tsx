@@ -12,9 +12,9 @@ interface CartContext {
   handleOpenCart: () => void;
   handleCloseCart: () => void;
   handlePassCartData: (modalData: ModalData, modalQuantity: number) => void;
-  handleChangeCartQuantity: (operation: number, id: number) => void;
+  handleChangeCartQuantity: (operation: number, name: string) => void;
   handleCalculatePrice: (modalQuantity: number, modalPrice: number) => number;
-  handleRemoveCartItem: (id: number) => void;
+  handleRemoveCartItem: (name: string) => void;
   handleCartTotal: () => number;
   handleCartTotalQuantity: () => number;
   handleCloseModal: () => void;
@@ -42,7 +42,7 @@ export function CartContextProvider({ children }: Props) {
   const handleCloseCart = () => setToggleCart(false);
 
   const handlePassCartData = (modalData: ModalData, modalQuantity: number) => {
-    if (cart.find((item) => item.id === modalData.id))
+    if (cart.find((item) => item.name === modalData.name))
       return setAlert({
         status: false,
         message: "This item is already added to your cart.",
@@ -50,10 +50,10 @@ export function CartContextProvider({ children }: Props) {
     setCart([...cart, { ...modalData, quantity: modalQuantity }]);
   };
 
-  const handleChangeCartQuantity = (operation: number, id: number) => {
+  const handleChangeCartQuantity = (operation: number, name: string) => {
     setCart((currentItems) => {
       return currentItems.map((item) => {
-        if (item.id === id) {
+        if (item.name === name) {
           if (operation === -1)
             if (item.quantity > 1)
               return { ...item, quantity: item.quantity + operation };
@@ -74,8 +74,8 @@ export function CartContextProvider({ children }: Props) {
     });
   };
 
-  const handleRemoveCartItem = (id: number) => {
-    setCart(cart.filter((item) => item.id !== id));
+  const handleRemoveCartItem = (name: string) => {
+    setCart(cart.filter((item) => item.name !== name));
   };
 
   const handleCalculatePrice = (modalQuantity: number, modalPrice: number) => {
