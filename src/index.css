@@ -1199,6 +1199,10 @@ footer {
   justify-self: center;
 }
 
+.footer__icons {
+  margin-top: 0.5rem;
+}
+
 @media screen and (max-width: 1200px) {
   .footer__grid {
     display: flex;
