@@ -19,7 +19,7 @@ const StoreItems = () => {
 
   if (searchedItem.length !== 0 && handleGetTotalResults() === 0)
     return (
-      <div className="block flex justify--evenly align--center">
+      <div className="block flex flex--wrap justify--evenly align--center gap">
         <h2 className="mg--0">No items found.</h2>
         <span onClick={() => handleClear("")}>
           <Button className="btn--warning">Clear Search</Button>
@@ -31,7 +31,7 @@ const StoreItems = () => {
     <section className="block container">
       {searchedItem.length !== 0 ? (
         <>
-          <div className="flex justify--evenly align--center store__container">
+          <div className="flex flex--wrap justify--evenly align--center gap store__container">
             <h2 className="mg--0">
               {handleGetTotalResults()}{" "}
               {handleGetTotalResults() === 1 ? "Result" : "Results"}

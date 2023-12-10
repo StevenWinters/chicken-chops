@@ -8,11 +8,6 @@ export const footerData = [
         path: "/menu",
         name: "View Menu",
       },
-      {
-        id: 2,
-        path: "/Deals",
-        name: "Locations",
-      },
     ],
   },
   {

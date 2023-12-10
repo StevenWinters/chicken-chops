@@ -35,6 +35,7 @@ const NavBar = () => {
   const { handleFilterActive, handleStoreFilter } = useStore();
 
   const handleFilter = (category: string) => {
+    setNavActive(false);
     handleFilterActive(category);
     handleStoreFilter(category);
   };
@@ -50,10 +51,12 @@ const NavBar = () => {
           navActive && "active"
         }`}
       >
-        <Logo className="nav__logo" />
-        <NavLists />
+        <span onClick={() => setNavActive(false)}>
+          <Logo className="nav__logo" />
+        </span>
+        <NavLists onSetNavActive={() => setNavActive(false)} />
         <div className="flex justify--between align--center gap nav__container">
-          <NavCart />
+          <NavCart onSetNavActive={() => setNavActive(false)} />
           <Link to="/store" onClick={() => handleFilter("All")}>
             <Button className="btn--accent nav__btn">Order Now</Button>
           </Link>

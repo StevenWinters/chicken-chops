@@ -1,13 +1,23 @@
 import { CiShoppingCart } from "react-icons/ci";
 import { useCart } from "../context/CartContext";
 
-const NavCart = () => {
+interface Props {
+  onSetNavActive: () => void;
+}
+
+const NavCart = ({ onSetNavActive }: Props) => {
   const { handleOpenCart, handleCartTotal, handleCartTotalQuantity } =
     useCart();
+
+  const handleNavCart = () => {
+    handleOpenCart();
+    onSetNavActive();
+  };
+
   return (
     <span
       className="flex gap--sm align--center nav__cart"
-      onClick={handleOpenCart}
+      onClick={handleNavCart}
     >
       &#8369;{handleCartTotal() ? handleCartTotal() : "0.00"}
       <CiShoppingCart size={25} />

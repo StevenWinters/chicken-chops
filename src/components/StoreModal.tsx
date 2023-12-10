@@ -85,7 +85,10 @@ const StoreModal = ({ isModalOpen, modalData, modalQuantity }: Props) => {
             </span>
           </div>
         </div>
-        <span className="icon icon--close" onClick={handleCloseModal}>
+        <span
+          className="icon icon--close modal__close"
+          onClick={handleCloseModal}
+        >
           <IoMdClose color="var(--color-dark)" size={25} />
         </span>
       </div>
