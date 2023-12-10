@@ -1148,6 +1148,10 @@ footer {
   border-top: 3px solid var(--color-accent);
 }
 
+.footer__grid {
+  margin-bottom: 5rem;
+}
+
 .footer__logo {
   max-width: 200px;
 }

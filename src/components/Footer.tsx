@@ -2,12 +2,16 @@ import { Link } from "react-router-dom";
 import { footerData } from "../data/footerData";
 import Logo from "./Logo";
 import Button from "./Button";
+import Header from "./Header";
 
 const Footer = () => {
   return (
     <footer className="block">
-      <div className="container grid grid--1x3 align--center footer__grid">
-        <Logo className="footer__logo" />
+      <div className="grid grid--1x3 align--center footer__grid">
+        <Header>
+          <Logo className="footer__logo" />
+          <h3>The Taste of Perfection.</h3>
+        </Header>
         <div className="grid grid--1x3 gap">
           {footerData.map((data) => (
             <div key={data.id} className="footer__container">
