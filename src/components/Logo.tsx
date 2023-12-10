@@ -8,7 +8,7 @@ interface Props {
 
 const Logo = ({ className }: Props) => {
   return (
-    <Link to="/">
+    <Link to="/" className="flex justify--center align--center">
       <CustomImage className={className} src={Image} alt="Chicken Chops Logo" />
     </Link>
   );

@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="grid grid--1x3 align--center footer__grid">
         <Header>
           <Logo className="footer__logo" />
-          <h3>The Taste of Perfection.</h3>
+          <h3 className="footer__tagline">The Taste of Perfection.</h3>
         </Header>
         <div className="grid grid--1x3 gap">
           {footerData.map((data) => (
