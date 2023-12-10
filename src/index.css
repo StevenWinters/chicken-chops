@@ -907,7 +907,7 @@ a {
   border-bottom: 3px solid var(--color-secondary);
   padding-bottom: 2rem;
   position: sticky;
-  top: 50px;
+  top: 4rem;
   background-color: #fff;
   z-index: 999;
 }
@@ -945,7 +945,7 @@ a {
 
 @media screen and (max-width: 1024px) {
   .store__filters {
-    top: 30px;
+    top: 2rem;
   }
 }
 
@@ -961,13 +961,13 @@ a {
 
 @media screen and (max-width: 550px) {
   .store__filters {
-    top: 7px;
+    top: 0;
   }
 }
 
 @media screen and (max-width: 500px) {
   .store__filters {
-    top: 45px;
+    top: 4rem;
   }
 }
 
