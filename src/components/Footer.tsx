@@ -36,7 +36,12 @@ const Footer = () => {
           <h4>Follow Us On</h4>
           <div className="flex justify--center gap--sm footer__icons">
             {footerIconsData.map((data) => (
-              <Link key={data.id} to={data.path} target="_blank">
+              <Link
+                key={data.id}
+                to={data.path}
+                target="_blank"
+                aria-label={data.label}
+              >
                 {data.icon}
               </Link>
             ))}
